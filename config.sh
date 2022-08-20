@@ -1,1 +1,1 @@
-NGROK_TOKEN="2DWuFwL4y0WkQnmTK6YjKwOJk3L_uXyBewUkxjFD9wz5ufgb"
+NGROK_TOKEN="ganti dengan ngrok auth kalian"
