@@ -1,9 +1,10 @@
 FROM debian:stable-slim
-ENV TERM=xterm
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TOKEN="ec8b5b9fe145f8924cc23444798f1be320bd9046ad99a60807"
+ENV TERM=xterm
 RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN apt-get install curl sudo -y
-RUN bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"
-CMD ["/bin/bash", "-c", "~/.buildkite-agent/bin/buildkite-agent start"]
+RUN apt-get install curl sudo apt-utils -y
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN apt-get install nodejs -y
+RUN npm i -g localtunnel
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+CMD ["/bin/bash", "-c", "code-server --auth=none --port=10000 & lt --port=10000"]
