@@ -30,6 +30,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        git add hello.py .gradient/workflows/workflow.yaml && git commit -m 'Add Gradient Workflow' && git push
         conda install pytest
         pytest
+        lscpu
